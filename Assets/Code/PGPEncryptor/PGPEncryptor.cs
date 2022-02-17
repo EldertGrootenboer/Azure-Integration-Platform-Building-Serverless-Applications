@@ -10,7 +10,8 @@ namespace EPH.Functions
     public static class PGPEncryptor
     {
         [FunctionName("PGPEncryptor")]
-        public static async Task Run([ServiceBusTrigger("contracts", Connection = "azureintegrationplatformserverlessapplications_SERVICEBUS")] dynamic myQueueItem,
+        public static async Task Run(
+            [ServiceBusTrigger("contracts", Connection = "azureintegrationplatformserverlessapplications_SERVICEBUS")] dynamic myQueueItem,
             [Blob("contracts/{sys.utcnow}.txt", FileAccess.Write)] Stream contract,
             ILogger log)
         {
